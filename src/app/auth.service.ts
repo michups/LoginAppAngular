@@ -1,25 +1,30 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
+
 interface response {
   response: any;
   secret: any;
 }
+
+interface registerResponse {
+  status: boolean;
+  message: any;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
 
-private loggedInStatus = false //JSON.parse(localStorage.getItem('loggedIn') || 'false')
+private loggedInStatus = false 
 constructor(private http: HttpClient) { }
 
   setLoggedIn(value: boolean) {
     this.loggedInStatus = value
-    // localStorage.setItem('loggedIn','true')
   }
   
   get isLoggedIn() {
-    // return this.loggedInStatus
     return   this.loggedInStatus
   }
 
@@ -30,9 +35,11 @@ getUserDetails(username, password) {
     username,
     password
   })
-  // .subscribe(data => {
-  //   console.log(data, " is what we got from the server")
-  // })
 }
-
+  registerUser(username, password) {
+    return this.http.post<registerResponse>('http://localhost:8080/register', {
+      username,
+      password
+    })
+  }
 }
