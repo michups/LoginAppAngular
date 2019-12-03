@@ -9,12 +9,22 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
-  message = "Loading..."
+  quote = "Loading quote"
+  username = "Getting username"
 
   constructor(private user: UserService,
               private router: Router) { }
 
   ngOnInit() {
+    this.user.getData().subscribe( data => {
+      if(data.status){
+      this.quote = data.quote
+      this.username = data.username
+      } else {
+        this.router.navigate(['logout'])
+      }
+    }
+    )
   }
 
 }

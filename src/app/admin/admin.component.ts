@@ -15,8 +15,9 @@ export class AdminComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
-    this.user.getSomeData().subscribe( data => {
+    this.user.getSomeSecretData().subscribe( data => {
       this.message = data.message
+      
       // if(data.status==='succes') {
       //   // localStorage.removeItem('loggedIn')
       // } else {

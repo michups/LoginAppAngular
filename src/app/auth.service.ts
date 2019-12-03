@@ -31,15 +31,15 @@ constructor(private http: HttpClient) { }
 getUserDetails(username, password) {
   // post these details to API server
   // return user info if correct
-  return this.http.post<response>('http://localhost:8080/auth', {
+  return this.http.post<response>('http://localhost:8080/auth/login', {
     username,
     password
-  })
+  },{withCredentials: true})
 }
   registerUser(username, password) {
-    return this.http.post<registerResponse>('http://localhost:8080/register', {
+    return this.http.post<registerResponse>('http://localhost:8080/auth/register', {
       username,
       password
-    })
+    },{withCredentials: true})
   }
 }
