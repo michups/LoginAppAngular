@@ -7,6 +7,8 @@ import { AuthGuard } from './auth.guard'
 import { LogoutComponent } from './logout/logout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RegisterComponent } from './register/register.component';
+import { PipesComponent } from './pipes/pipes.component';
+import { DirectivesComponent } from './directives/directives.component';
 
 
 const routes: Routes = [
@@ -17,7 +19,9 @@ const routes: Routes = [
     canActivate: [AuthGuard] },
   { path: 'dashboard', component: DashboardComponent,
     canActivate: [AuthGuard]},
-  { path: 'register', component: RegisterComponent}
+  { path: 'register', component: RegisterComponent},
+  { path: 'pipes', component: PipesComponent},
+  { path: 'directives', component: DirectivesComponent}
 
 ];
 

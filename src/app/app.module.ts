@@ -9,7 +9,11 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LogoutComponent } from './logout/logout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { RegisterComponent } from './register/register.component'; 
+import { RegisterComponent } from './register/register.component';
+import { PipesComponent } from './pipes/pipes.component';
+import { ReversePipe } from './reverse.pipe';
+import { DirectivesComponent } from './directives/directives.component';
+import { RedblackDirective } from './redblack.directive';
 
 
 @NgModule({
@@ -20,7 +24,11 @@ import { RegisterComponent } from './register/register.component';
     HomeComponent,
     LogoutComponent,
     DashboardComponent,
-    RegisterComponent
+    RegisterComponent,
+    PipesComponent,
+    ReversePipe,
+    DirectivesComponent,
+    RedblackDirective,
   ],
   imports: [
     BrowserModule,

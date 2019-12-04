@@ -1,3 +1,11 @@
-<div id="message">Username: {{username}} <br>
+<div id="message">Username: {{username}} 
+    <br>
     Quote: {{quote}}
-<br><a routerLink="/logout" class="button">Logout</a> </div>
+    <br>
+    <a routerLink="/logout" class="button">Logout</a> 
+    <div id="controls">
+            <input type="text" value="{{quote}}" id="myQuote">
+            <input type="button" value="Update Quote" (click)="updateQuote($event)">
+    </div>
+</div>
+

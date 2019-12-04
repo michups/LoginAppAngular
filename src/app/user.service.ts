@@ -13,11 +13,11 @@ interface myData {
   message: any;
 }
 
-interface isLoggedIn {
+interface status {
   status: boolean;
 }
 
-interface logoutStatus {
+interface status {
   success: boolean;
 }
 
@@ -32,16 +32,21 @@ export class UserService {
     return this.http.get<userData>('http://localhost:8080/data/user', {withCredentials: true})
   }
 
+  updateQuote(value) {
+    return this.http.post<status>('http://localhost:8080/data/quote',{
+      value
+    }, {withCredentials: true})
+  }
+
   getSomeSecretData() {
     return this.http.get<myData>('http://localhost:8080/data/datasecret', {withCredentials: true})
   }
 
-  isLoggedIn(): Observable<isLoggedIn> {
-    return this.http.get<isLoggedIn>('http://localhost:8080/auth/isloggedin', {withCredentials: true})
+  isLoggedIn(): Observable<status> {
+    return this.http.get<status>('http://localhost:8080/auth/isloggedin', {withCredentials: true})
   }
 
   logout() {
-    return this.http.get<logoutStatus>('http://localhost:8080/auth/logout', {withCredentials: true})
+    return this.http.get<status>('http://localhost:8080/auth/logout', {withCredentials: true})
   }
-
 }

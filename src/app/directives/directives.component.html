@@ -1,0 +1,32 @@
+<div *ngIf="someRandomvariable; then trueBlock; else falseBlock">
+  yes! 2 is greater than 1
+</div>
+
+<ng-template #trueBlock>
+  <div><h1>YES!!</h1></div>
+</ng-template>
+<ng-template #falseBlock>
+  <div><h1>NO!!</h1></div>
+</ng-template>
+
+
+<h1>Interpolation</h1>
+<p>Interpolation is way angular uses to display variables inside your HTML
+  using the curly braces.
+  You can display a variable named <b>name</b> using <span ngNonBindable>{{name}}</span> </p>
+  <br/><br/>
+
+  <ul>
+    <li *ngFor="let item of data" >
+      <span [ngClass]="{
+        'javascript': item.lang === 'JavaScript',
+        'swift': item.lang === 'Swift'
+      }">{{item.lang}} </span>is mostly used on {{item.usedOn}}
+    </li>
+  </ul>
+
+  <br/>
+  <br/>
+
+  <p>This paragraph is a normal one</p>
+  <p appRedblack>This paragraph is a custom directives one</p>
