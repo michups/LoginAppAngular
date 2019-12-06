@@ -14,7 +14,9 @@ import { PipesComponent } from './pipes/pipes.component';
 import { ReversePipe } from './reverse.pipe';
 import { DirectivesComponent } from './directives/directives.component';
 import { RedblackDirective } from './redblack.directive';
-
+import { HeaderComponent } from './header/header.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './store/reducers';
 
 @NgModule({
   declarations: [
@@ -29,11 +31,13 @@ import { RedblackDirective } from './redblack.directive';
     ReversePipe,
     DirectivesComponent,
     RedblackDirective,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot(reducers)
   ],
   providers: [],
   bootstrap: [AppComponent]
