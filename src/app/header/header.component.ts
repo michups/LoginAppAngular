@@ -9,15 +9,20 @@ import { UserService } from '../user.service';
 export class HeaderComponent implements OnInit {
 
   greetMessage = 'Hello Guest';
-  logout = true;
+  login = true;
 
   constructor(private user: UserService) { }
 
   ngOnInit() {
+
     this.user.getAllState().subscribe(state => {
-      this.logout = !state.login;
+      this.login = state.login;
       this.greetMessage = state.login ? "Hello " + state.user : "Guest"
     });
+
   }
 
+
+  ngOnDestroy() {
+  }
 }

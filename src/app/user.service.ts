@@ -56,4 +56,12 @@ export class UserService {
     return this.store.select('appReducer');
   }
 
+  updateState(obj) {
+    // debugger;
+    this.store.dispatch({
+      type: obj.action,
+      payload: obj.payload
+  })
+}
+
 }

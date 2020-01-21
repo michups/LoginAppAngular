@@ -1,6 +1,9 @@
+import { ACTION_LOGIN } from './../store/actions/appActions';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service'
 import { Router } from '@angular/router';
+import { reducer } from '../store/reducers/appReducer';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +13,8 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   constructor(private Auth: AuthService,
-    private router: Router) { }
+    private router: Router,
+    private user: UserService) { }
 
   ngOnInit() {
   }
@@ -26,6 +30,10 @@ export class LoginComponent implements OnInit {
         if(data.response=="success"){
           this.router.navigate(['admin'])
           this.Auth.setLoggedIn(true)
+          this.user.updateState({
+            action: ACTION_LOGIN,
+            payload: username
+          })
         }else {
           window.alert(data.response+", "+data.secret)
         }

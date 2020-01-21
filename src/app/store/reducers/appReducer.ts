@@ -7,22 +7,24 @@ export interface appReducerState {
 }
 
 const initialState: appReducerState = {
-  login: true,
-  user: 'mehul'
+  login: false,
+  user: ''
 };
 
 export function reducer(state = initialState, action): appReducerState {
-  switch (action.tpe) {
+  switch (action.type) {
     case ACTION_LOGOUT:
-      return {
+    return {
         ...state,
-        login: false
+        login: false,
+        user: action.payload
       };
     case ACTION_LOGIN:
-      return {
+    return {
         ...state,
-        login: false
+        login: true,
+        user: action.payload
       };
-  }
+    }
   return state;
 }

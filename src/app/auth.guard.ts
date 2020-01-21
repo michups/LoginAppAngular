@@ -1,3 +1,4 @@
+import { ACTION_LOGOUT, ACTION_LOGIN } from './store/actions/appActions';
 import { Injectable } from '@angular/core';
 import { CanActivate, CanActivateChild, CanLoad, Route, UrlSegment, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -10,10 +11,10 @@ import {map} from 'rxjs/operators'
 })
 export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
 
-  constructor(private auth:AuthService, 
+  constructor(private auth:AuthService,
               private router: Router,
               private user: UserService){
-    
+
   }
 
   canActivate(
@@ -31,11 +32,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
           return false
         }
     }))
-      // // return true;
-    // if(!this.auth.isLoggedIn){
-    //   this.router.navigate(['login'])
-    // }
-    //   return this.auth.isLoggedIn;
+
   }
   canActivateChild(
     next: ActivatedRouteSnapshot,
